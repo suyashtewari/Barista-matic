@@ -1,0 +1,67 @@
+<mat-card class="inventory-card" @fadeIn>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>inventory_2</mat-icon>
+    <mat-card-title>Current Inventory</mat-card-title>
+    <mat-card-subtitle>Available ingredients</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <table mat-table [dataSource]="ingredients" class="inventory-table">
+      <!-- Ingredient Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Ingredient</th>
+        <td mat-cell *matCellDef="let ingredient">{{ ingredient.name }}</td>
+      </ng-container>
+
+      <!-- Units Column -->
+      <ng-container matColumnDef="units">
+        <th mat-header-cell *matHeaderCellDef>Units</th>
+        <td mat-cell *matCellDef="let ingredient">
+          <div class="units-display">
+            <span
+              [ngClass]="{
+                'low-inventory': ingredient.currentUnits < 3,
+                'medium-inventory':
+                  ingredient.currentUnits >= 3 && ingredient.currentUnits < 7,
+                'high-inventory': ingredient.currentUnits >= 7
+              }"
+            >
+              {{ ingredient.currentUnits }}/{{ ingredient.maxUnits }}
+            </span>
+            <mat-progress-bar
+              class="ingredient-progress"
+              [value]="(ingredient.currentUnits / ingredient.maxUnits) * 100"
+              [color]="getProgressColor(ingredient)"
+            ></mat-progress-bar>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Cost Column -->
+      <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>Unit Cost</th>
+        <td mat-cell *matCellDef="let ingredient">
+          ${{ ingredient.unitCost.toFixed(2) }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [ngClass]="{ 'low-inventory-row': row.currentUnits < 3 }"
+      ></tr>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="restockInventory()"
+      [disabled]="allIngredientsFull()"
+    >
+      <mat-icon>refresh</mat-icon> Restock All
+    </button>
+  </mat-card-actions>
+</mat-card>

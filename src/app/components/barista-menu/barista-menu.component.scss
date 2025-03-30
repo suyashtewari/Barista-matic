@@ -1,0 +1,80 @@
+.menu-card {
+    height: 100%;
+  }
+  
+  .drinks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  
+  .drink-card {
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+  }
+  
+  .drink-card:hover:not(.disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .drink-card.disabled {
+    opacity: 0.6;
+    background-color: #f5f5f5;
+  }
+  
+  .ingredients-list {
+    margin: 10px 0;
+  }
+  
+  .dispensing-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .dispensing-message {
+    flex: 1;
+    margin-left: 16px;
+  }
+  
+  .dispensing-animation {
+    width: 70px;
+    height: 80px;
+    position: relative;
+  }
+  
+  .coffee-cup {
+    width: 50px;
+    height: 60px;
+    background-color: #f5f5f5;
+    border-radius: 0 0 5px 5px;
+    border: 3px solid #6F4E37;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .coffee-cup:before {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 15px;
+    height: 20px;
+    width: 10px;
+    border: 3px solid #6F4E37;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .coffee-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #6F4E37;
+    border-radius: 0 0 2px 2px;
+    transition: height 0.3s ease;
+  }

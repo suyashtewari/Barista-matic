@@ -1,0 +1,30 @@
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-spacer {
+    flex: 1 1 auto;
+  }
+
+  .main-content {
+    padding: 20px 0;
+  }
+
+  .welcome-card {
+    margin-bottom: 20px;
+    background-color: white;
+  }
+
+  .app-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .app-layout {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,37 @@
+.inventory-card {
+    height: 100%;
+  }
+  
+  .inventory-table {
+    width: 100%;
+  }
+  
+  .units-display {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .low-inventory {
+    color: #C62828;
+    font-weight: bold;
+  }
+  
+  .medium-inventory {
+    color: #F57C00;
+  }
+  
+  .high-inventory {
+    color: #2E7D32;
+  }
+  
+  .low-inventory-row {
+    background-color: rgba(198, 40, 40, 0.1);
+  }
+  
+  mat-card-header {
+    margin-bottom: 16px;
+  }
+  
+  .ingredient-progress {
+    margin-top: 4px;
+  }

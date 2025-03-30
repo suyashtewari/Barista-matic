@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  --primary-color: #6F4E37; /* Coffee brown */
+  --secondary-color: #D4A76A; /* Light brown */
+  --accent-color: #B87333; /* Copper */
+  --background-color: #FFF8E1; /* Cream */
+  --text-color: #3E2723; /* Dark brown */
+  --danger-color: #C62828; /* Red */
+  --success-color: #2E7D32; /* Green */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Custom Material overrides */
+.mat-card {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-toolbar {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.mat-button.primary {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.mat-button.accent {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Coffee shop themed elements */
+.coffee-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.ingredient-progress {
+  height: 10px;
+  border-radius: 5px;
+}

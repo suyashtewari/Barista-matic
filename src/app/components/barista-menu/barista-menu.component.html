@@ -1,0 +1,72 @@
+<mat-card class="menu-card" @fadeIn>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>local_cafe</mat-icon>
+    <mat-card-title>Barista-matic Menu</mat-card-title>
+    <mat-card-subtitle>Select your favorite coffee drink</mat-card-subtitle>
+  </mat-card-header>
+
+  <div
+    *ngIf="isDispensing"
+    class="dispensing-container"
+    [@dispensingAnimation]="'active'"
+  >
+    <div class="dispensing-animation">
+      <div class="coffee-cup">
+        <div class="coffee-liquid" [style.height.%]="dispensingProgress"></div>
+      </div>
+    </div>
+    <div class="dispensing-message">
+      <h3>Dispensing {{ currentDrink?.name }}</h3>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="dispensingProgress"
+        color="accent"
+      ></mat-progress-bar>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <div class="drinks-container">
+      <mat-card
+        *ngFor="let drink of availableDrinks"
+        class="drink-card"
+        [class.disabled]="!isDrinkAvailable(drink) || isDispensing"
+      >
+        <mat-card-header>
+          <mat-card-title>{{ drink.name }}</mat-card-title>
+          <mat-card-subtitle>${{ drink.price.toFixed(2) }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="ingredients-list">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let ing of getIngredientList(drink)"
+                [color]="
+                  isIngredientAvailable(ing.name, ing.units)
+                    ? 'primary'
+                    : 'warn'
+                "
+                [highlighted]="!isIngredientAvailable(ing.name, ing.units)"
+                disableRipple
+              >
+                {{ ing.units }}× {{ ing.name }}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!isDrinkAvailable(drink) || isDispensing"
+            (click)="orderDrink(drink)"
+          >
+            <mat-icon>local_bar</mat-icon> Order
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
