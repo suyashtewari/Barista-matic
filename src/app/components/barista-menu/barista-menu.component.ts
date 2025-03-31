@@ -1,4 +1,3 @@
-// src/app/barista-menu/barista-menu.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrinkService } from '../../services/drink.service';

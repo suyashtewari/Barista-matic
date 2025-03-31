@@ -1,4 +1,3 @@
-// src/app/services/drink.service.ts
 import { Injectable } from '@angular/core';
 import { Drink } from '../models/drink.model';
 import { InventoryService } from './inventory.service';

@@ -1,10 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-  flush,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaristaMenuComponent } from './barista-menu.component';
 import { DrinkService } from '../../services/drink.service';
 import { InventoryService } from '../../services/inventory.service';

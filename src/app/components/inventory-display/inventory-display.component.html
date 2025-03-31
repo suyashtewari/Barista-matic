@@ -1,6 +1,5 @@
 <mat-card class="inventory-card" @fadeIn>
   <mat-card-header>
-    <mat-icon mat-card-avatar>inventory_2</mat-icon>
     <mat-card-title>Current Inventory</mat-card-title>
     <mat-card-subtitle>Available ingredients</mat-card-subtitle>
   </mat-card-header>
@@ -61,7 +60,7 @@
       (click)="restockInventory()"
       [disabled]="allIngredientsFull()"
     >
-      <mat-icon>refresh</mat-icon> Restock All
+      Restock All
     </button>
   </mat-card-actions>
 </mat-card>

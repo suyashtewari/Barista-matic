@@ -1,6 +1,5 @@
 <mat-card class="menu-card" @fadeIn>
   <mat-card-header>
-    <mat-icon mat-card-avatar>local_cafe</mat-icon>
     <mat-card-title>Barista-matic Menu</mat-card-title>
     <mat-card-subtitle>Select your favorite coffee drink</mat-card-subtitle>
   </mat-card-header>
@@ -63,7 +62,7 @@
             [disabled]="!isDrinkAvailable(drink) || isDispensing"
             (click)="orderDrink(drink)"
           >
-            <mat-icon>local_bar</mat-icon> Order
+            Order
           </button>
         </mat-card-actions>
       </mat-card>
