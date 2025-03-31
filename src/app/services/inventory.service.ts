@@ -1,4 +1,3 @@
-// src/app/services/inventory.service.ts
 import { Injectable } from '@angular/core';
 import { Ingredient } from '../models/ingredient.model';
 import { BehaviorSubject, Observable } from 'rxjs';
